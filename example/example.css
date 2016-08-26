@@ -1,0 +1,89 @@
+html, body, div, p {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+.wrap {
+    position: absolute;
+    top: 44px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+p {
+    padding: 15px;
+    line-height: 24px;
+}
+.qr {
+    text-align: center;
+}
+.intro {
+    font-size: 18px;
+}
+.row {
+    color: #666;
+}
+.latest {
+    position: relative;
+    width: 100%;        /*background-color: red;*/
+}
+.more {
+    position: relative;
+    width: 100%;        /*background-color: black;*/
+}
+.latest div, .more div {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    font-size: 12px;
+    color: #7c7c7c;
+    text-align: left;
+    /*width: 100px;*/
+    /*margin: 0 auto;*/
+    text-align: center;
+}
+.more div {
+    top: 0;
+    bottom: auto;
+}
+li {
+    list-style: none;
+}
+div.groupmsg_time {
+    width: auto;
+}
+
+.wrapper_list {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 4.1rem;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+.scroller_list {
+  z-index: 1;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  width: 100%;
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  -o-text-size-adjust: none;
+  text-size-adjust: none;
+}
