@@ -1,9 +1,9 @@
 'use strict';
 
-import path from 'path';
-import webpack from 'webpack';
+var path = require('path');
+var webpack = require('webpack');
 
-export default {
+module.exports = {
   devtool: 'source-map',
   devServer: {
     noInfo: true

@@ -1,0 +1,304 @@
+root: true
+extends: 'eslint:recommended'
+env:
+    browser: true
+    node: true
+
+globals:
+    $CONFIG: false
+
+parser: babel-eslint
+
+plugins:
+    - react
+
+rules:
+    ## 不能有console
+    no-console:
+        - 2
+    ## 不能有alert
+    no-alert:
+        - 2
+    ## 不能有debugger
+    no-debugger:
+        - 2
+    ## 不能出现不会执行的代码
+    no-unreachable:
+        - 2
+
+    ## 不允许出现空的代码块
+    no-empty:
+        - 2
+
+    ## 上面的都是新的
+
+    ## 变量未使用
+    no-unused-vars:
+        - 2
+        - 
+            args: none
+            varsIgnorePattern: React
+
+    ## else跟两个括号同行
+    brace-style:
+        - 2
+        - 1tbs
+        - allowSingleLine: true
+
+    ## 逗号要放在最后
+    comma-style: 2
+
+    ## 只能使用that给this复制
+    consistent-this:
+        - 2
+        - that
+
+    ## 单行表达式可以不加括号
+    # if (foo) foo++; else doSomething();
+    #if (foo) foo++;
+    #else if (bar) baz()
+    #else doSomething();
+    #do something();
+    #while (foo);
+    #while (foo
+    #  && bar) baz();
+    #if (foo) {
+    #    foo++;
+    #}
+    #if (foo) { foo++; }
+    #while (true) {
+    #    doSomething();
+    #    doSomethingElse();
+    #}
+    curly:
+        - 2
+        - multi-line
+
+    ## .在换行时放在行首
+    dot-location:
+        - 0
+        - object
+
+    ## 尽量使用===
+    eqeqeq:
+        - 2
+        - smart
+
+    ## *generator函数*号的位置
+    generator-star-spacing:
+        - 0
+        - both
+
+    ######正确写法######
+    #for (key in foo) {
+    #    if ({}.hasOwnProperty.call(foo, key)) {
+    #        doSomething(key);
+    #    }
+    #}
+    guard-for-in: 2
+
+    ######正确写法######
+    #switch(a){
+    #    case "a":
+    #        break;
+    #    case "b":
+    #        break;
+    #}
+    indent:
+        - 2
+        - 4
+        - SwitchCase: 1
+
+    ######正确写法######
+    #var a = 'a', // \n
+    #    b = 'b'; // \n
+    #// \n
+    #function foo(params) {// \n
+    #    // do stuff \n
+    #}// \n
+    linebreak-style:
+        - 2
+        - unix
+
+    ##嵌套最多五层
+    #function foo() {
+    #   for (;;) {
+    #        if (true) {
+    #
+    #        }
+    #    }
+    #}
+    max-depth:
+        - 2
+        - 5
+
+    ##每行最多80字
+    max-len:
+        - 0
+        - 80
+
+    ##形参最多5个
+    max-params:
+        - 0
+        - 5
+
+    ##形参回调层级
+    max-nested-callbacks:
+        - 2
+        - 3
+
+    ##函数内命令条数
+    max-statements:
+        - 2
+        - 45
+
+    ##不允许独立if语句，错误写法如下
+    #if (condition) {
+    #} else {
+    #    if (anotherCondition) { /*error Unexpected if as the only statement in an else block.*/
+    #        // ...
+    #    } else {
+    #        // ...
+    #    }
+    #}
+    no-lonely-if: 2
+
+    ##最大空行
+    no-multiple-empty-lines:
+        - 2
+        - max: 1
+
+    ##不允许自己比自己
+    no-self-compare: 2
+
+    # 使用前必须定义,函数除外
+    no-use-before-define:
+        - 2
+        - nofunc
+
+    ## 对象前后有空格
+    #var obj = { 'foo': { 'bar': 'baz' }, 'qux': 'quxx' };
+    object-curly-spacing:
+        - 0
+        - always
+        - arraysInObjects: true
+
+    ## 操作符尽量简写
+    operator-assignment:
+        - 2
+        - always
+
+    ## 操作符必须在后面
+    operator-linebreak: 
+        - 2
+        - after
+
+    ## if等语句后面不能有空行
+    padded-blocks:
+        - 2
+        - never
+
+    ## 对象尽量不使用引号
+    quote-props:
+        - 2
+        - as-needed
+
+    ## 引用使用单引号
+    quotes:
+        - 0
+        - single
+        - avoid-escape
+
+    ## 必须加结束的分号
+    semi: 2
+
+    ## 判断关键字(if, else, for, while, do, switch, try, catch, finally, and with)前面要有空格
+    space-after-keywords: 0
+
+    ## 判断关键字(if, else, for, while, do, switch, try, catch, finally, and with)后面要有空格
+    space-before-blocks: 0
+
+    ## 函数名后面没有空格
+    space-before-function-paren:
+        - 0
+        - never
+
+    ## 括号前后没有空格
+    space-in-parens:
+        - 2
+        - never
+
+    ## 注释前有空格 
+    spaced-comment: [0, "always", { "line": { "exceptions": ["-"] } }]
+
+    ## iife必须封装在外面
+    # var x = (function () { return { y: 1 };})();
+    wrap-iife:
+        - 2
+        - inside
+
+    ## 正则需要封装
+    wrap-regex: 0
+
+    ## 必须定义组件的displayName,接收编译器生成
+    react/display-name:
+        - 0
+        - acceptTranspilerName: true
+
+    ## 不显式定义bool类型的变量
+    react/jsx-boolean-value:
+        - 0
+
+    ## 属性前后需要有空格
+    react/jsx-curly-spacing: 
+        - 0
+
+    ## 不允许重复的属性,不区分大小写
+    react/jsx-no-duplicate-props:
+        - 2
+        - ignoreCase: true
+
+    ## 组件使用前必须定义
+    react/jsx-no-undef: 2
+
+    ## 字符串需要双引号
+    jsx-quotes:
+        - 0
+        - prefer-double
+
+    ## propTypes属性必须按字母顺序排列,函数放在最后
+    react/jsx-sort-prop-types: 0
+
+    ## React参数不可定义为其他变量
+    react/jsx-uses-react:
+        - 2
+        - ignoreCase: true
+
+    ## 定义的参数必须使用
+    react/jsx-uses-vars: 2
+
+    ## 不允许在didmount阶段设置状态, func中除外
+    react/no-did-mount-set-state:
+        - 2
+        - allow-in-func
+
+    ## 不允许在didupdate阶段设置状态
+    react/no-did-update-set-state: 2
+
+    ## 每个文件一个组件
+    react/no-multi-comp: 2
+
+    ## 属性必须被react支持
+    react/no-unknown-property: 2
+
+    ## propTypes检查必须写
+    react/prop-types: 0
+
+    ## 组件必须闭合
+    react/self-closing-comp: 2
+
+    ## 组件内函数按顺序排列
+    react/sort-comp: 0
+
+    ## 组件返回可多行
+    react/wrap-multilines: 2
