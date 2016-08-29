@@ -180,21 +180,20 @@ export default class ListView extends React.Component {
     }
 
     handleTouchMove = e => {
-        this.scrollUpCheckTimer && clearTimeout(this.scrollUpCheckTimer);
         this.touchMoveTriggerTimer && clearTimeout(this.touchMoveTriggerTimer);
 
         if (this._canTouchMove && this.props.compatSlider && this._startMove) {
             let point = e.touches && e.touches[0];
             let deltaX = point.pageX - this._pointX;
             let deltaY = point.pageY - this._pointY;
-
-            this._draggable = true;
+            
             this._startMove = false;
             this._canTouchMove = Math.abs(deltaX) > Math.abs(deltaY) ? false : true;
+            this._draggable = !this._canTouchMove;
         }
 
         if (!this._canTouchMove) return;
-
+        this.scrollUpCheckTimer && clearTimeout(this.scrollUpCheckTimer);
         let innerHeight = window.innerHeight;
         let ctHeight = this.wrapper.scrollHeight;
         let coords = this._touchCoords;
