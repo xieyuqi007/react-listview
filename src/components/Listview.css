@@ -10,11 +10,11 @@
 }
 .latest {
     position: relative;
-    width: 100%;        /*background-color: red;*/
+    width: 100%;        
 }
 .more {
     position: relative;
-    width: 100%;        /*background-color: black;*/
+    width: 100%;        
 }
 .latest div, .more div {
     position: absolute;
@@ -84,7 +84,7 @@
     text-align: center;
 }
 
-.wrapper_list {
+.wrapper {
   position: absolute;
   z-index: 1;
   top: 0;
@@ -95,7 +95,7 @@
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
 }
-.scroller_list {
+.scroller {
   z-index: 1;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   width: 100%;

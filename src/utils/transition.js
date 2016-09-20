@@ -44,49 +44,6 @@ export function listenTransition(target, duration, callbackFn) {
     target.transitionTimer = setTimeout(handler, duration + 100);
 }
 
-export function listenAnimationIteration(target, duration, callbackFn) {
-    var that = this, transitionTimer, clear, handler;
-        // event = transitionEndEvent === 'transitionend' ? 'animationiteration' :
-        //     transitionEndEvent.replace('TransitionEnd', 'AnimationIteration'),
-    clear = function() {
-        if (transitionTimer) clearTimeout(transitionTimer);
-        transitionTimer = null;
-        // target.removeEventListener(event, handler, false);
-        target.removeEventListener('animationiteration', handler, false);
-        target.removeEventListener('webkitAnimationIteration', handler, false);
-    };
-    handler = function() {
-        clear();
-        if (callbackFn) callbackFn.call(that);
-    };
-    clear();
-    target.addEventListener('animationiteration', handler, false);
-    target.addEventListener('webkitAnimationIteration', handler, false);
-    // target.addEventListener(event, handler, false);
-    transitionTimer = setTimeout(handler, duration + 100);
-}
-
-export function listenAnimationEnd(target, duration, callbackFn) {
-    var that = this, transitionTimer, clear, handler;
-        // event = transitionEndEvent === 'transitionend' ? 'animationend' :
-        //     transitionEndEvent.replace('TransitionEnd', 'AnimationEnd'),
-    clear = function() {
-        if (transitionTimer) clearTimeout(transitionTimer);
-        transitionTimer = null;
-        // target.removeEventListener(event, handler, false);
-        target.removeEventListener('animationend', handler, false);
-        target.removeEventListener('webkitAnimationEnd', handler, false);
-    };
-    handler = function() {
-        clear();
-        if (callbackFn) callbackFn.call(that);
-    };
-    clear();
-    target.addEventListener('animationend', handler, false);
-    target.addEventListener('webkitAnimationEnd', handler, false);
-    transitionTimer = setTimeout(handler, duration + 100);
-}
-
 export default {
     transition,
     listenTransition
